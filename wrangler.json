@@ -1,0 +1,16 @@
+{
+  "compatibility_date": "2025-04-01",
+  "main": "src/index.ts",
+  "name": "calm-shadow-4aca",
+  "upload_source_maps": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "ae7a1cf4-b2e2-44d8-ac9d-1989b331ddce",
+      "database_name": "shy-fire-cd1b-d1"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
