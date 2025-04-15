@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "wrangler": "4.7.0",
-    "express": "^5.1.0"
+    "wrangler": "4.7.0"
   }
 }

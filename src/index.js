@@ -1,22 +1,26 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+export default {
+  async fetch(request, env, ctx) {
+    // Danh sách users tạm thời (thay cho database)
+    const users = [
+      { id: 1, name: 'John Doe', email: 'john@example.com' },
+      { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
+    ];
 
-// Middleware để parse JSON
-app.use(express.json());
+    // Xử lý yêu cầu GET cho /api/users
+    const { method, url } = request;
+    const { pathname } = new URL(url);
 
-// Danh sách users tạm thời (thay cho database)
-let users = [
-    { id: 1, name: 'John Doe', email: 'john@example.com' },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
-];
+    if (method === 'GET' && pathname === '/api/users') {
+      return new Response(JSON.stringify(users), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*' // Cho phép CORS nếu cần
+        }
+      });
+    }
 
-// GET: Lấy tất cả users
-app.get('/api/users', (req, res) => {
-    res.json(users);
-});
-
-// Khởi động server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+    // Trả về lỗi nếu route hoặc method không khớp
+    return new Response('Not Found', { status: 404 });
+  }
+};
