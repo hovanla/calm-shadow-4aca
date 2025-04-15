@@ -1,6 +1,6 @@
 {
   "compatibility_date": "2025-04-01",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "name": "calm-shadow-4aca",
   "upload_source_maps": true,
   "d1_databases": [
